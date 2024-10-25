@@ -26,20 +26,36 @@ export default class SupportVectorRegression {
                 let prediction = this.predict(X_train[i]);
                 const error = y_train[i] - prediction;
 
+                // Update alpha only if error exceeds epsilon
                 if (Math.abs(error) > this.epsilon) {
-                    this.alpha[i] += this.C * error;
+                    this.alpha[i] = Math.min(this.C, Math.max(-this.C, this.alpha[i] + this.C * error));
                 }
             }
         }
 
-        this.b = y_train.reduce((sum, val, i) => sum + (val - this.predict(X_train[i])), 0) / n;
+        // Update bias term using the support vectors (those where alpha is not zero)
+        let bSum = 0;
+        let supportVectorCount = 0;
+        for (let i = 0; i < n; i++) {
+            if (Math.abs(this.alpha[i]) > 1e-6) {
+                bSum += y_train[i] - this.predict(X_train[i]);
+                supportVectorCount++;
+            }
+        }
+        this.b = bSum / supportVectorCount;
+
+        // Console logs after training
+        console.log("Alpha values after training:", this.alpha);
+        console.log("Training data (X_train) after training:", this.X_train);
     }
 
     // Predict using the trained model
     predict(x) {
         let result = this.b;
         for (let i = 0; i < this.alpha.length; i++) {
-            result += this.alpha[i] * this.rbfKernel(x, this.X_train[i]);
+            if (Math.abs(this.alpha[i]) > 1e-6) {  // Only use support vectors
+                result += this.alpha[i] * this.rbfKernel(x, this.X_train[i]);
+            }
         }
         return result;
     }
@@ -48,24 +64,23 @@ export default class SupportVectorRegression {
     calculateMSE(X_test, y_test) {
         const n = X_test.length;
         let totalError = 0;
-    
+
         for (let i = 0; i < n; i++) {
             // Check for NaN or undefined values in X_test and y_test
             if (!X_test[i] || !y_test[i] || isNaN(y_test[i])) {
                 console.error(`Invalid data at index ${i}: X_test[i] = ${X_test[i]}, y_test[i] = ${y_test[i]}`);
                 continue;
             }
-    
+
             const prediction = this.predict(X_test[i]);
             if (isNaN(prediction)) {
-                console.error(`Prediction returned NaN for X_test[i]: ${X_test[i]}`);
+                console.error(`Prediction returned NaN for X_test[${i}]: ${X_test[i]}`);
                 continue;
             }
-    
+
             totalError += (y_test[i] - prediction) ** 2;
         }
-    
+
         return totalError / n;
     }
-    
 }

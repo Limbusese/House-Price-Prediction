@@ -13,10 +13,12 @@ class MinMaxNormalizer {
     }
 
     calculateMinMax(data, features) {
+        // Initialize min and max values for each feature
         features.forEach(feature => {
             this.minMaxValues[feature] = { min: Infinity, max: -Infinity };
         });
 
+        // Iterate over each row of data to find min and max values
         data.forEach(row => {
             features.forEach(feature => {
                 const value = this.safeParseFloat(row[feature]);
@@ -24,6 +26,9 @@ class MinMaxNormalizer {
                 if (value > this.minMaxValues[feature].max) this.minMaxValues[feature].max = value;
             });
         });
+
+        // Log the min and max values for each feature
+        console.log('Min-Max Values:', this.minMaxValues);
     }
 
     normalize(value, min, max) {
@@ -42,6 +47,12 @@ class MinMaxNormalizer {
             .on('end', () => {
                 // Calculate min and max values for each feature
                 this.calculateMinMax(results, features);
+
+                // Log the min and max values for the entire dataset
+                console.log("Min and Max values of the entire dataset:");
+                features.forEach(feature => {
+                    console.log(`${feature} => Min: ${this.minMaxValues[feature].min}, Max: ${this.minMaxValues[feature].max}`);
+                });
 
                 // Normalize the data
                 const normalizedData = results.map(row => {
@@ -77,8 +88,8 @@ class MinMaxNormalizer {
 
 // Example usage:
 const normalizer = new MinMaxNormalizer();
-const inputFilePath = '../dataSets/houseDataset_geocodedFile.csv';  // Path to input CSV
-const outputFilePath = '../model/houseDatasets_normalized.csv';  // Path to save normalized data
+const inputFilePath = '../dataSets/trainDataSet/houseDatasetstrain_data.csv';  // Path to input CSV
+const outputFilePath = '../dataSets/minMaxValue.csv';  // Path to save normalized data
 const features = ['locationLat', 'locationLon', 'price', 'builtOn', 'bedrooms', 'bathrooms', 'landArea', 'roadSize'];
 
 normalizer.normalizeCSV(inputFilePath, outputFilePath, features);

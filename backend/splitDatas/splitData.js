@@ -45,7 +45,7 @@ class DataSplitter {
 }
 
 // Example usage
-const inputFilePath = '../dataSets/houseDatasets_normalized.csv'; // Path to your normalized CSV
+const inputFilePath = '../dataSets/houseDataset_geocodedFile.csv'; // Path to your normalized CSV
 const trainOutputPath = '../dataSets/houseDatasetstrain_data.csv'; // Path to save training dataSets
 const testOutputPath = '../dataSets/houseDatasetstest_data.csv'; // Path to save testing data
 
