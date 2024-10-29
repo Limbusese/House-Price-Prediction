@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,500;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+    --background-color: rgba(255, 255, 255, 0.15);
+    --box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --backdrop-blur: blur(10px);
+    --border-radius: 0.6rem;
+  }
+  
+  
+
+body {
+  height: 92dvh;
+  margin: 1dvw 3dvw;
+  border-radius: 0.8rem;
+  position: relative;
+}
+
+
+/* main Section */
+.main_section {
+  background-image: url("../images/apartment3.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 93dvh;
+  width: auto;
+  border-radius: .6rem;
+  padding: 1.6dvh;
+  
+}
+
+/* header starts here */
+
+header {
+  position: absolute;
+  width: 94dvw;
+  padding: 0.6rem 3rem;
+  /* border-bottom: 0.1rem solid rgb(133, 114, 114);  */
+  background: rgba( 255, 255, 255, 0.5 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1px );
+  border-radius: 10px;
+  border-bottom: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/* header section ends here */
+
+
+/* header logo starts*/
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo img {
+  height: 3rem;
+ 
+}
+
+.logo .logo_name {
+    font-size: 1.2rem;
+    font-weight: thin;
+    font-family: Satisfy;
+    color: rgb(77, 69, 59);
+}
+/* header logo ends */
+
+
+/* nav section Starts Here */
+.main_header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* nav section Ends Here */
+
+/* social Media Section and LogIn  */
+.social_media {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social_media i {
+  border: 2px solid rgb(250, 244, 244);
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  font-size: 1.2rem;
+}
+
+.social_media i:hover {
+
+}
+
+.log_in {
+  border: 2px solid white;
+  font-family: Nunito;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0.3rem 0.9rem;
+  border-radius: 0.8rem;
+}
+
+/* Social Media and LogIn section ends here */
+
+
+
+/* main section starts */
+.hero_section {
+    position: relative;
+    top: 15%;
+    display: grid;
+    grid-template-columns: 53% 40%;
+    grid-gap: 20rem;
+   
+}
+
+
+.hero_section .hero_section_information_header  {
+    position: absolute;
+    top: 19%;
+    left: 15%;
+    font-family: Nunito;
+    font-size: 3rem;
+    color: rgb(72,72,72);
+}
+
+.hero_section .hero_section_information_subheader {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  font-family: Nunito;
+  font-size: 1.3rem;
+  width: 60%;
+  text-align: center;
+
+}
+
+.hero_section .hero_section_form {
+    top: 15%;
+    right: 5%;
+    height: 70dvh;
+    width: 20dvw;
+}
+
+.hero_section_informationBtn {
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    border: 1px solid white;
+    padding: 0.3rem;
+    margin-top: 0.4rem;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1rem;
+    cursor: grabbing;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.hero_section_informationBtn:hover {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    background: linear-gradient(-135deg, var(--main-color), var(--main-grey));
+}
+
+}
+
+
+
+/* main Section ends */
+
+/* Animation Section Starts */
+.person_type {
+  border: 3px solid blue;
+}
+
+.person_type::after {
+  content: "Buying";
+  display: inline-block;
+  animation: swapText 6s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* Duratiobackdrop-filter: blur(0.5rem);n and infinite repetition */
+}
+
+@keyframes swapText {
+  0%, 45% {
+      content: "Buy";
+      opacity: 0;
+      transform: scale(0.8); /* Start smaller */
+  }
+  10%, 40% {
+      opacity: 1;
+      transform: scale(1); /* Normal size */
+  }
+  55%, 100% {
+      content: "Sell";
+      opacity: 0;
+      transform: scale(0.8); /* Shrink again */
+  }
+  60%, 95% {
+      opacity: 1;
+      transform: scale(1); /* Normal size */
+  }
+}
+
+/* Animation Section Ends  */
+
+.success-message,
+.error-message {
+  font-weight: 800;
+}
+
+.swal-modal,
+.swal-button {
+  font-family: Nunito;
+}
+
+.swal-text {
+  line-height: 1.8rem;
+}
+
+.swal-overlay {
+  background-color: rgb(19 0 0 / 65%)
+}
+
+.swal-button {
+  background-color: rgb(254,231,201, 0.5);
+  transition: all 0.5s;
+  border: none;
+  color: #000;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: rgb(242, 237, 231);
+}

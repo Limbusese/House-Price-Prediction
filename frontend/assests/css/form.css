@@ -1,0 +1,110 @@
+:root {
+    --main-color: rgb(254,231,201);
+    --sub-color: rgb(254,231,201, 0.5);
+    --main-purple: #9b59b6;
+    --main-grey: #ccc;
+    --sub-grey: #d9d9d9;
+  }
+
+form {
+    margin: 0;
+    padding: 2rem 1rem;
+    border-bottom: 0.1rem solid rgb(133, 114, 114); 
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 30px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+   
+}
+
+.form_field {
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    column-gap: 0.7rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1.3rem;
+} 
+
+
+.form_group input {
+    border: transparent;
+    background-color: transparent;
+    height: 2.3rem;
+    width: 100%;
+    outline: none;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+
+.form_field label {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.form_field input::placeholder {
+    color: #4d3c3c;
+    font-weight: 300;
+}
+
+.form_field input[type="number"]::-webkit-inner-spin-button {
+    /* -webkit-appearance: none; /* Remove default styling */
+    appearance: none; */
+    background: none;
+}
+
+.form_second_field_radioButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+}
+
+
+.form_second_field_radioBtn {
+    display: none;
+}
+
+ .form_second_field_radioBtn.show {
+    display: block;
+}
+
+.form_second_field  #labelIam {
+    font-weight: 600;
+}
+
+.form_second_field .second_field_radio_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    
+}
+
+.form_second_field input[type="radio"] {
+    transform: scale(1.2);
+}
+
+
+.form_second_field_radioBtn {
+    border: 1px solid white;
+    padding: 0.3rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: Poppins;
+    cursor: grabbing;
+    border-radius: 1rem;
+    background: linear-gradient(-135deg, var(--main-color), var(--main-grey));
+}
+
+.form_second_field_radioBtn:hover {
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 0.2rem;
+    background: transparent;
+}

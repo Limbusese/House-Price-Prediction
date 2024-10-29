@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Price Predictor</title>
+    <link rel="icon" href="./assests/images/logo.png" type="images/png" />
+
+    <link rel="stylesheet" href="./assests/css/index.css" />
+    <link rel="stylesheet" href="./assests/css/form.css" />
+
+    
+    <script src="./assests/javascript/validation.js" defer></script>
+    <script src="./assests/javascript/index.js" defer></script>
+    <script src="./assests/javascript/prediction.js" defer></script>
+
+    <script src="https://kit.fontawesome.com/880c95e437.js " defer crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+
+  </head>
+  <body>
+    <section class="header_section">
+      <header>
+        <section class="main_header">
+          <nav>
+            <section class="logo">
+              <section class="logo_image">
+                <img src="./assests/images/logo.png" />
+              </section>
+              <section class="logo_name"><h2>gharNepal</h2></section>
+            </section>
+
+            <section class="social_media">
+                <i class="fa-brands fa-tiktok" style="color: #171617;"></i>
+                <i class="fa-brands fa-facebook-f" style="color: #6f48e4;"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </section>
+
+            <section class="log_in">
+                <article>Log In</article>
+            </section>
+          </nav>
+        </section>
+      </header>
+    </section>
+
+    <section class="main_section">
+      <section class="hero_section">
+        <section class="hero_section_information">
+          <section class="hero_section_information_header">
+            <article><h3>Predict House Price Before You</h3><span class="person_type">
+            </span></article>
+            <article>
+                
+            </article>
+          </section>
+
+          <section class="hero_section_information_subheader">
+            <article>
+                <!-- Unlock the true potential of your porperty investment with our <br><strong>House Price Prediction System!</strong> -->
+            </article>
+          </section>
+        </section>
+
+        <section class="hero_section_informationBtn">
+            <article><h2>Get Best Price !</h2></article>
+          </section>
+        
+        <section class="hero_section_form">
+          <form id="send" class="send_form">
+            <section class="form_group">
+              <section class="form_field">
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Enter Location"
+                  required
+                />
+                <label for="location">
+                  <i class="fa-solid fa-location-dot"></i>
+                </label>
+              </section>
+
+              <section class="form_field">
+                <input
+                  type="text"
+                  name="roadSie"
+                  placeholder="Enter RoadSize in Feet"
+                  required
+                />
+                <label for="roadSie">
+                  <i class="fa-solid fa-road"></i>
+                </label>
+              </section>
+
+              <section class="form_field">
+                <input
+                  type="number"
+                  name="bedrooms"
+                  placeholder="Enter Bedrooms"
+                  required
+                />
+                <label for="bedrooms">
+                  <i class="fa-solid fa-bed"></i>
+                </label>
+              </section>
+
+              <section class="form_field">
+                <input
+                  type="number"
+                  name="bathrooms"
+                  placeholder="Enter Bathrooms"
+                  required
+                />
+                <label for="bathrooms">
+                  <i class="fa-solid fa-sink"></i>
+                </label>
+              </section>
+
+              <section class="form_field">
+                <input
+                  type="text"
+                  name="landSize"
+                  placeholder="Enter LandSize In Anna"
+                  required
+                />
+                <label for="landSize">
+                  <i class="fa-solid fa-location-dot"></i>
+                </label>
+              </section>
+
+              <section class="form_field">
+                <input
+                  type="text"
+                  name="builtOn"
+                  placeholder="Enter BuiltOn Year"
+                  required
+                />
+                <label for="builtOn">
+                  <i class="fa-regular fa-calendar-days"></i>
+                </label>
+              </section>
+
+              <section class="form_second_field">
+                <section class="form_second_field_radioButton">
+                  <label id="labelIam">I am:</label>
+
+                  <section class="second_field_radio_group">
+                    <input
+                      type="radio"
+                      name="person"
+                      value="buyer"
+                      id="buyer"
+                    />
+                    <label for="buyer">Buying</label>
+                  </section>
+
+                  <section class="second_field_radio_group">
+                    <input
+                      type="radio"
+                      name="person"
+                      value="seller"
+                      id="seller"
+                    />
+                    <label for="seller">Selling</label>
+                  </section>
+                </section>
+              </section>
+
+              <section class="form_second_field_radioBtn" id="predictButton">
+                <article><h3>Predict</h3></article>
+               </section>
+            </section>
+          </form>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>

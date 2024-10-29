@@ -1,5 +1,6 @@
 import express from 'express';
-import router from './router/router.js';  
+import router from './router/router.js';
+import cors from 'cors'  
 
 class App {
     constructor() {
@@ -10,6 +11,7 @@ class App {
     }
 
     setMiddlewares() {
+        this.app.use(cors());
         this.app.use(express.json()); // Middleware to parse JSON
     }
 
