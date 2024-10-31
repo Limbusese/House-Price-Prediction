@@ -66,11 +66,11 @@ form {
 }
 
 
-.form_second_field_radioBtn {
+.form_second_field_radioBtn, .form_second_field {
     display: none;
 }
 
- .form_second_field_radioBtn.show {
+ .form_second_field_radioBtn.show, .form_second_field.show {
     display: block;
 }
 

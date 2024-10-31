@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Global variable to store the response data for other files to access
+    window.apiResponseData = null;
+
     async function handleDataSubmission() {
         const receivedData = window.submittedData;
 
@@ -25,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Async function for fetching buyer API
     async function fetchBuyerAPI(data) {
         try {
-            const response = await fetch('http:// localhost:8020/api/predictBuyerHousePrice', {
+            const response = await fetch('http://localhost:8020/api/predictBuyerHousePrice', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -38,6 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             const result = await response.json();
             console.log("Buyer API response:", result);
+
+            // Store the response globally and dispatch an event
+            window.apiResponseData = result;
+            window.dispatchEvent(new Event('apiResponseUpdated'));
+
         } catch (error) {
             console.error("Error fetching buyer API:", error);
         }
@@ -45,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Async function for fetching seller API
     async function fetchSellerAPI(data) {
-        console.log("buyer's data:", data)
+        console.log("Seller's data:", data)
         try {
             const response = await fetch('http://localhost:8020/api/predictHousePrice', {
                 method: 'POST',
@@ -56,6 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             const result = await response.json();
             console.log("Seller API response:", result);
+
+            // Store the response globally and dispatch an event
+            window.apiResponseData = result;
+            window.dispatchEvent(new Event('apiResponseUpdated'));
+
         } catch (error) {
             console.error("Error fetching seller API:", error);
         }

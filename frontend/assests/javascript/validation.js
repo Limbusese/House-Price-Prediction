@@ -39,9 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (!landSizeInput.value.trim()) {
             errors.push("Land size is required");
-        } else if (isNaN(landSizeInput.value) || parseFloat(landSizeInput.value) < 0) {
-            errors.push("Land size must be a non-negative number");
+        } else {
+            const annaDamPattern = /^\d+\s*Anna(\s*\d+\s*Dam)?$/i;
+            
+            if (!annaDamPattern.test(landSizeInput.value)) {
+                errors.push("Land size must be in the format 'X Anna' or 'X Anna Y Dam' with non-negative numbers");
+            }
         }
+        
         if (!builtOnInput.value.trim()) {
             errors.push("Built-on year is required");
         } else {
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
             roadSize: parseInt(roadSizeInput.value),
             bedrooms: parseInt(bedroomsInput.value),
             bathrooms: parseInt(bathroomsInput.value),
-            landSize: parseFloat(landSizeInput.value),
+            landArea: parseFloat(landSizeInput.value),
             builtOn: parseInt(builtOnInput.value),
             person: personType
         };
@@ -92,12 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Show success message
         swal({
-            title: "Success!",
-            text: "Form submitted successfully!",
+            title: "Success! Form Submitted",
+            text: "Please Wait for a moment!!!",
             icon: "success",
-            button: "OK"
+            // button: "OK"
         }).then(() => {
-            form.reset(); // Reset the form after success
+            form.reset(); 
         });
     });
 });

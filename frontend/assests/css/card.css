@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,500;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: nunito;
+}
+
+.card_section.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(65, 64, 64, 0.5); 
+    backdrop-filter: blur(1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    transform: scale(1);
+}
+
+.card_section--invisible {
+    transform: scale(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* .card_section.hide {
+    transform: scale(0);
+} */
+
+.card_section.active .card_section_layout {
+    border: 1px solid rgb(38, 32, 32);
+    background-color: #fff;
+    backdrop-filter: blur(30px);
+    height: fit-content;
+    width: 40dvw;
+    padding: 3rem;
+    border-radius: 0.3rem;
+}
+
+.card_section.active .card_section_layout_exit {
+    position: absolute;
+    right: 2.5dvw;
+    top: 3dvh;
+    font-size: 1.5rem;
+    cursor: grabbing;
+}
+
+.card_section.active .card_section_layout_price_section {
+    border: 3px solid;
+    border-radius: 0.6rem;
+    margin: 3rem 0 3rem 0; 
+}
+
+.card_section.active .card_section_layout_price_amount article {
+    border-radius: 0.4rem;
+    background-color: #ede9eb;
+    padding: 1rem 0;
+}
+
+.card_section.active .card_section_layout_price_amount article {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    
+}
+
+.card_section.active .card_section_layout_price_amount img {
+    height: 1.4rem;
+    
+}
+
+.card_section.active .card_section_layout_price_amount span {
+    font-weight: bold;
+    font-family: nunito;
+    font-size: 1.5rem;
+    color: rgb(72,72,72);
+}
+
+.card_section.active .card_section_layout_header article,
+.card_section.active .card_section_layout_facilities_header article {
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fcfcfc;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 2px solid #dfcdd8;
+   
+  
+}
+
+/* .card_section .card_section_layout_header article::after,
+.card_section_layout_facilities_header article::after  {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 0.1rem; 
+    background-color: black; 
+    margin-top: 4px;
+    
+} */
+
+
+
+/* Near by facilities starts from here */
+.card_section.active .card_section_layout_facilities_section {
+    border: 3px solid;
+    border-radius: 0.8rem 0.8rem 0 0;
+    margin-top: 1.6rem;
+    padding: 0rem 0.3rem;
+}
+
+
+.card_section.active .card_section_layout_facilities_details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.3rem;
+    overflow-y: auto;
+    max-height: 22rem;
+    scrollbar-width: none;
+}
+
+.card_section.active .card_section_layout_facilities_card_details {
+    background-color: #ede9eb;
+    padding: 1rem 0.5rem;
+    border-radius: 0.6rem;
+ 
+}
+
+.card_section.active .card_section_layout_facilities_card_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_section.active .card_section_layout_facilities_card_logo img {
+    height: 6rem;
+}
+
+
+
+.card_section.active .card_section_layout_facilities_card_information {
+    text-align: center;
+    margin: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.card_section.active .card_section_layout_facilities_card_header {
+    font-weight: 700;
+    font-size: 1.3rem;
+} 
+
+.card_section.active .card_section_layout_facilities_card_type {
+    font-size: 1.2rem;
+}
+
+.card_section.active .card_section_layout_facilities_card_distance {
+    font-weight: bold;
+    gap: 23rem;
+    font-size: 1.2rem;
+}
