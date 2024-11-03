@@ -19,3 +19,5 @@ const exitLogo = document.querySelector(".card_section_layout_exit i");
 exitLogo.addEventListener("click", () => {
     cardLayout.classList.toggle("hide");
 })
+
+

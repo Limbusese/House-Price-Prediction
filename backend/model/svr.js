@@ -60,27 +60,40 @@ export default class SupportVectorRegression {
         return result;
     }
 
-    // Function to calculate Mean Squared Error
-    calculateMSE(X_test, y_test) {
-        const n = X_test.length;
-        let totalError = 0;
+   // Function to calculate Mean Absolute Percentage Error
+ // Function to calculate Mean Absolute Percentage Error (MAPE)
+calculateMAPE(X_test, y_test) {
+    console.log("ytestdata", y_test)
+    const n = X_test.length;
+    let totalError = 0;
+    let validCount = 0; // Count of valid observations
 
-        for (let i = 0; i < n; i++) {
-            // Check for NaN or undefined values in X_test and y_test
-            if (!X_test[i] || !y_test[i] || isNaN(y_test[i])) {
-                console.error(`Invalid data at index ${i}: X_test[i] = ${X_test[i]}, y_test[i] = ${y_test[i]}`);
-                continue;
-            }
-
-            const prediction = this.predict(X_test[i]);
-            if (isNaN(prediction)) {
-                console.error(`Prediction returned NaN for X_test[${i}]: ${X_test[i]}`);
-                continue;
-            }
-
-            totalError += (y_test[i] - prediction) ** 2;
+    for (let i = 0; i < n; i++) {
+        if (!X_test[i] || !y_test[i] || isNaN(y_test[i])) {
+            console.error(`Invalid data at index ${i}: X_test[i] = ${X_test[i]}, y_test[i] = ${y_test[i]}`);
+            continue;
         }
 
-        return totalError / n;
+        const prediction = this.predict(X_test[i]);
+        if (isNaN(prediction)) {
+            console.error(`Prediction returned NaN for X_test[${i}]: ${X_test[i]}`);
+            continue;
+        }
+
+        // Avoid division by zero and calculate absolute percentage error only for valid values
+        if (y_test[i] !== 0) {
+            totalError += Math.abs((y_test[i] - prediction) / y_test[i]);
+            validCount++;
+        } else {
+            console.warn(`Actual value is zero at index ${i}. Skipping this entry.`);
+        }
     }
+
+    return validCount > 0 ? (totalError / validCount) * 100 : 0; // Return MAPE as a percentage
 }
+
+}
+
+
+
+    

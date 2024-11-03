@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,500;1,500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main_admin_section main {
+  height: 92dvh;
+  margin: 2dvw 3dvw;
+  border-radius: 0.8rem;
+  background-color: rgb(243,249,246);
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+/* line divider */
+.line_dividor {
+  height: 0.1rem;
+  width: 100%;
+  background-color: black;
+  display: block;
+  border-radius: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+/* side bar section */
+.sidebar_section {
+  border-radius: 0.8rem 0 0 0.8rem;
+  height: 100%;
+  background-color: rgb(230,243,238);
+  padding: 2rem;
+  width: 90%;
+}
+
+.logo_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: grabbing;
+}
+
+.logo_section img {
+  height: 3.2rem;
+}
+
+.logo_section .logo_name {
+  font-size: 1.2rem;
+  font-weight: thin;
+  font-family: Satisfy;
+  color: rgb(77, 69, 59);
+}
+
+/* Dashboard Listing */
+.dashboard_lists {
+  margin-top: 8dvh;
+  font-family: nunito;
+}
+
+  .dashboard_lists ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dashboard_lists li {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    gap: 1rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 1rem;
+    width: fit-content;
+    transition: background-color 0.3s; /* Smooth transition for background */
+  }
+
+  .dashboard_lists li:nth-child(2) {
+    margin: 25dvh 0;
+  }
+  
+  .dashboard_lists li:hover, .dashboard_lists li:nth-child(1).active {
+    cursor: grabbing;
+    background-color: rgb(225, 214, 214); /* Change only background on hover */
+  }
+  
+
+
+  /* main admin section */
+  .main_body_section {
+    padding: 2rem;
+    font-family: nunito;
+  }
+
+  .main_body_section .greeting_section {
+    font-weight: bold;
+    font-size: 1.7rem;
+    padding: 1rem 0;
+  }
+
+  .main_body_information_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(225, 214, 214);
+    place-items: center;
+    height: 40dvh;
+    border-radius: 1rem;
+    margin-top: 5dvh;
+    margin-right: 2rem;
+  }
+
+  .model {
+    border-radius: 1rem;
+    padding: 2rem 0rem;
+    width: 20dvw;
+    text-align: center;
+    border:1px solid rgb(175, 175, 166);
+    background-color: rgb(241, 236, 236);
+  }
+
+  .model span {
+    font-size: 1.7rem;
+  }
+
+  .model article:nth-child(1) {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  .model article:nth-child(2) {
+    /* font-weight: bold; */
+    font-size: 1.6rem;
+    margin: 1.4rem 0 0 0;
+  }

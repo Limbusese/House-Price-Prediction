@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="./assests/css/index.css" />
     <link rel="stylesheet" href="./assests/css/form.css" />
     <link rel="stylesheet" href="./assests/css/card.css" />
+    <link rel="stylesheet" href="./assests/css/logInForm.css" />
 
     
     <script src="./assests/javascript/validation.js" defer></script>
     <script src="./assests/javascript/index.js" defer></script>
     <script src="./assests/javascript/prediction.js" defer></script>
     <script src="./assests/javascript/card.js" defer></script>
+    <script src="./assests/javascript/logInForm.js" defer></script>
 
     <script src="https://kit.fontawesome.com/880c95e437.js " defer crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
@@ -178,7 +180,6 @@
       </section>
     </section>
 
-
       <section class="card_section">
         <!-- <section class="card_section_layout"> -->
           <!-- <section class="card_section_layout_exit">
@@ -278,6 +279,35 @@
                </section>
               </section>   
         </section> -->
+    </section>
+
+    <section class="login_form_section">
+      <section class="login_form_card">
+        <section class="login_form_card_detail">
+          <form id="logIn_form">
+            <section class="login_form_section_layout_exit">
+              <i class="fa-solid fa-circle-xmark fa-beat"></i>
+          </section>
+
+            <h2>Login</h2>
+            
+            <section class="form_group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" placeholder="Enter User Name" required>
+            </section>
+
+            <section class="form_group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </section>
+
+            <section class="form_button">
+              <button type="submit">Login</button>
+            </section>
+          </form>
+        </section>
+      </section>
+         
     </section>
     
   </body>

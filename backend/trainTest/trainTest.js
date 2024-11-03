@@ -83,8 +83,8 @@ class SVRModel {
 
   // Method to test the model and calculate Mean Squared Error
   testModel() {
-    const mse = this.svrModel.calculateMSE(this.X_test, this.y_test);
-    console.log(`Mean Squared Error on test data: ${mse}`);
+    const mape = this.svrModel.calculateMAPE(this.X_test, this.y_test);
+    console.log(`Mean Absolute Percentage Error (MAPE) on test data: ${mape.toFixed(2)}%`);
   }
 
   // Method to predict house price based on features

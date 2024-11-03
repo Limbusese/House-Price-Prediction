@@ -62,7 +62,6 @@ header {
 
 .logo img {
   height: 3rem;
- 
 }
 
 .logo .logo_name {
@@ -79,6 +78,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.log_in:hover {
+  cursor: grabbing;
+  transition: all 0.3s ease;
+  background: linear-gradient(-135deg, var(--main-color), var(--main-grey));
 }
 /* nav section Ends Here */
 
