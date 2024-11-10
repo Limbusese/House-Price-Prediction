@@ -14,24 +14,21 @@ class SVRModel {
 
     // RBF kernel function
     rbfKernel(x1, x2) {
-        // Ensure x1 and x2 are not undefined or null
         if (!x1 || !x2) {
             throw new Error("x1 and x2 must not be undefined or null");
         }
     
-        // Convert x1 and x2 to arrays if they are not already arrays
+
         x1 = Array.isArray(x1) ? x1 : Array.from(x1);
         x2 = Array.isArray(x2) ? x2 : Array.from(x2);
     
-        // Ensure that x1 and x2 have the same length
+
         if (x1.length !== x2.length) {
             throw new Error("x1 and x2 must have the same length");
         }
     
-        // Calculate the squared distance between corresponding elements
         const distance = x1.reduce((sum, val, i) => sum + (val - x2[i]) ** 2, 0);
-    
-        // Apply the RBF kernel formula
+       
         return Math.exp(-this.gamma * distance);
     }
     

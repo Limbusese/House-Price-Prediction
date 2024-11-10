@@ -61,7 +61,7 @@ export default class SupportVectorRegression {
     }
 
    // Function to calculate Mean Absolute Percentage Error
- // Function to calculate Mean Absolute Percentage Error (MAPE)
+ 
 calculateMAPE(X_test, y_test) {
     console.log("ytestdata", y_test)
     const n = X_test.length;

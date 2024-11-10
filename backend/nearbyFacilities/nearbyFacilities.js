@@ -16,22 +16,28 @@ class NearbyFacilitiesFinder {
         return name.split('').map(char => transliterationMap[char] || char).join('');
     }
 
-    async fetchWithRetry(url, retries = 3, delay = 1000) {
+    async fetchWithRetry(url, retries = 3, delay = 2000) {
+        const axiosInstance = axios.create({
+            headers: { 'User-Agent': 'gharSansar/1.0 (seselimbu98@gmail.com)' }
+        });
         for (let i = 0; i < retries; i++) {
             try {
-                return await axios.get(url);
+                return await axiosInstance.get(url);
             } catch (error) {
                 if (error.response && error.response.status === 429 && i < retries - 1) {
                     console.warn(`Rate limit hit, retrying in ${delay}ms...`);
                     await new Promise(resolve => setTimeout(resolve, delay));
                     delay *= 2;
+                } else if (error.response && error.response.status === 403) {
+                    console.error('403 Forbidden: Access to the requested resource is restricted.');
+                    throw error;
                 } else {
                     throw error;
                 }
             }
         }
     }
-
+    
     async getGeocode() {
         if (this.geocodeCache[this.location]) {
             const { lat, lon } = this.geocodeCache[this.location];

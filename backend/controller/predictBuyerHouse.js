@@ -42,9 +42,12 @@ export const predictBuyerPrice = async (req, res) => {
         const maxPrice = 1025000000;
         const priceDenormalization = new PricePrediction(minPrice, maxPrice);
         const finalPrice = priceDenormalization.predictActualPrice(modelPredictedPrice);
+        console.log("the final price is:", finalPrice);
+        console.log(location)
 
         const nearbyFacilitiesFinder = new NearbyFacilitiesFinder(location);
         const nearbyFacilitiesData = await nearbyFacilitiesFinder.getNearbyFacilities();
+        console.log("the nerbyfaciliesi is:",nearbyFacilitiesData)
 
         return res.status(200).json({
             price: finalPrice,
